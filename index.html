@@ -1,14 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <title>Index</title>
+    <!--set page title-->
+    <title>My Resume - Xuyang Han</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--load css and js from internal and external resources.-->
+    <!-- Bulma Version 0.7.2-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/my resume.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
-<<body>
-  My Pages
+
+<body>
+<!--create sections using hero style-->
+<section class="hero is-fullheight is-dark is-bold">
+    <div class="hero-head">
+        <!--create a nav bar and put tabs at the end-->
+        <nav class="navbar">
+            <div class="container">
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-end">
+                        <div class="tabs is-right">
+                            <ul>
+                                <li class="is-active"><a>Home</a></li>
+                                <li><a href="">Examples</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <!--divide the section into two columns. -->
+            <div class="columns is-vcentered">
+                <!--the first column-->
+                <div class="column is-5">
+                    <!--import a random img each time refresh the page-->
+                    <figure class="image is-4by3">
+                        <img src="https://picsum.photos/800/600/?random" alt="Description">
+                    </figure>
+                </div>
+
+                <!--the second column-->
+                <!--styled Greetings. and a link goes to my cv.  -->
+                <div class="column is-6 is-offset-1">
+                    Hello! I am
+                    <h1 class="title is-1">
+                        Xuyang Han
+                    </h1>
+                    <h2 class="subtitle is-3">
+                        Full Stack Web Developer
+                    </h2>
+
+                    <br>
+                    <p class="has-text-centered">
+                        <a class="button is-medium is-info is-outlined"
+                           href="https://www.visualcv.com/xuyang-han-4547790">
+                            Learn more
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Me Section -->
+<section class="section" id="about">
+    <!-- Title and my description-->
+    <div class="section-heading">
+        <h3 class="title is-2">About Me</h3>
+        <h4 class="subtitle is-5">Jack of all trades, master of "some"</h4>
+        <div class="container">
+            <p>Web developer with more than <strong>4 months</strong> of well-rounded experience.
+                Building the <strong>first Crowd-sourced bathymetry database</strong> in North Canada Area.
+                Have experience on <strong>Full Stack Developing</strong>.
+                Looking for an opportunity to work and upgrade, as well as being involved in an organization that
+                believes in gaining a competitive edge and giving back to the community.</p>
+        </div>
+    </div>
+    <!--create three columns, no gap-->
+    <div class="columns has-same-height is-gapless">
+        <!--my profile in the first column-->
+        <div class="column">
+            <!-- Profile -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title is-4">Profile</h3>
+                    <!--info in the table-->
+                    <div class="content">
+                        <table class="table-profile">
+                            <tr>
+                                <th colspan="1"></th>
+                                <th colspan="2"></th>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td>York University</td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td>647-913-4069</td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>han978@yorku.ca</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <!--some links to my accounts-->
+                    <div class="buttons has-addons is-centered">
+                        <a href="https://github.com/xuyangHan" class="button is-link">Github</a>
+                        <a href="https://www.linkedin.com/in/xuyang-han-531540112" class="button is-link">LinkedIn</a>
+                        <a href="https://www.youtube.com/channel/UCAx84KwRItMl_a2G-m0VpoA" class="button is-link">Youtube</a>
+                        <a href="#" class="button is-link">CodeTrace</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--a random img in the second column-->
+        <div class="column">
+            <!-- Profile picture -->
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <!--my skills level at the third column-->
+        <div class="column">
+            <!-- Skills -->
+            <div class="card">
+                <div class="card-content skills-content">
+                    <h3 class="title is-4">Skills</h3>
+                    <div class="content">
+                        <!--use progress bar to show my skill level-->
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>JavaScript:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="90" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Django</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="85" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>HTML5/CSS3</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="95" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Databases</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="75" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Vue.js:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="20" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Node.js:</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="20" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resume -->
+<section class="section" id="resume">
+    <!--link goes to my resume-->
+    <div class="section-heading">
+        <h3 class="title is-2">Resume</h3>
+        <h4 class="subtitle is-5">More about my past</h4>
+        <a href="https://www.visualcv.com/xuyang-han-4547790" class="button is-link is-medium">
+            <span>Download My Resume</span>
+        </a>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-heading">
+            <h3 class="title is-2">Contact</h3>
+            <h4 class="subtitle is-5">Get in touch</h4>
+        </div>
+        <br>
+<!--create two columns with 2px gap.-->
+        <div class="columns is-2">
+            <!--the first column contains a form to allow user to submit info-->
+            <div class="column is-6">
+                <div class="box">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Text input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="Email input" value="">
+                            <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped has-text-centered">
+                        <div class="control">
+                            <button class="button is-link is-large">
+                                <span>Submit</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--the second column embed a google map, showing my location-->
+            <div class="column">
+                <div class="container">
+                    <h3 class="title is-4">My Location: </h3>
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--js to create google maps using google API-->
+<script>
+    function initMap() {
+        // my position using lat and lonn
+        var myLatLng = {lat: 43.767760, lng: -79.502970};
+        // Create a map object and specify the DOM element
+        // for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 12
+        });
+// change marker style
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            icon: image,
+            title: 'Hello World!'
+        });
+// add info window so when click on the marker, the info window will pop up
+        var infoWindowOptions = {content: 'My Location'}
+        var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+        google.maps.event.addListener(marker, 'click', function (e) {
+            infoWindow.open(map, marker);
+        });
+    }
+</script>
+<!--my api key-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy381OfNCXjdUqgLLMYY7AtESnTjrS5eU&callback=initMap"
+        async defer></script>
 </body>
 </html>

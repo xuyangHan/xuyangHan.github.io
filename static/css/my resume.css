@@ -1,0 +1,49 @@
+/*make the cards under About Me section the same height*/
+.has-same-height .card {
+    height: 320px;
+    overflow: hidden;
+}
+
+/*align the texts in cards under About Me section in the middle*/
+.card-content h3 {
+    text-align: center;
+}
+
+/*no border for the profile table*/
+.table-profile td,
+th {
+    border: none !important;
+}
+
+/*make the texts in first column of the profile table bold*/
+.table-profile td:first-of-type {
+    font-weight: bold;
+}
+
+
+/*The media article section padding 4px to the top, bottom, right and left*/
+.skills-content .media {
+    margin: 0 !important;
+    padding: 4px !important;
+    border: 0 !important;
+}
+
+
+/* set height for progress bar */
+.skills-content .progress {
+    height: 4px !important;
+}
+
+
+/* set positions for all section headings*/
+.section-heading {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 6em;
+}
+
+/*style the google map*/
+#map {
+    height: 300px;
+    width: 45%;
+}

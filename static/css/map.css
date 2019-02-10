@@ -1,0 +1,75 @@
+
+.sidenav {
+    height: 91%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    /*top: 0;*/
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-style: outset;
+}
+
+.sidenav #sidebaropenbtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 14px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+#dash-img-container {
+    width: 95%;
+}
+
+#dash-img {
+    width: 100%;
+}
+
+.help-icon .help-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: wheat;
+    color: #333333;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.help-icon:hover .help-text {
+    visibility: visible;
+}
+
+.modal {
+    padding-top: 5%;
+}
+
+.is-hoverable:hover {
+    font-weight: bold;
+}
+
+/*#data-list-section, #query-section, #data-detail, #my-data-list{*/
+    /*max-height: 400px;*/
+    /*overflow: auto;*/
+/*}*/
+
+.fa-trash-alt:hover {
+    color: crimson
+}

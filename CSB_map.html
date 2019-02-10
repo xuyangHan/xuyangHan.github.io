@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="static/css/map.css">
+    <link rel="shortcut icon" href="static/imgs/logo.jpg" type="image/x-icon">
+    <title>CSB | Map</title>
+    <style>
+        #map {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 97%;
+            height: 91%;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/" style="font-weight: 600; font-size: 200%;">CSB</a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="/map">Map</a>
+                    <a class="navbar-item" href="/upload">Upload</a>
+                    <a class="navbar-item" href="/map">Dashboard</a>
+                    <a class="navbar-item" href="/map">About Us</a>
+                </div>
+                <div class="navbar-end">
+
+                    <a class="navbar-item" href="{% url 'account_login' %}">Sign In</a>
+                    <a class="navbar-item" href="{% url 'account_signup' %}">Sign Up</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+<section>
+    <div id="mySidenav" class="sidenav">
+        <button onclick="openQueryBar()" id="sidebaropenbtn"><i class="fas fa-angle-double-right"></i></button>
+        <section id="my-data-list" style="display: block">
+            <div class="box">
+                <p class="has-text-weight-bold">My Data Layers:</p>
+                <ul id="my-datasets" style="padding-left: 15px">
+                    <li class="has-text-danger" id="no-layer-selected">No Data was added to the map yet.</li>
+                </ul>
+                <p class="has-text-weight-bold">Visual Analytics:
+                    <i class="far fa-question-circle help-icon" id="dash-tip">
+                        <span class="help-text" id="dash-help-text">Click to Open Visual Analytics Help</span>
+                    </i>
+                </p>
+                <button class="button is-info" id="modal-Btn">Generate Dashboard</button>
+            </div>
+        </section>
+        <section>
+            <div class="box">
+                <label class="has-text-weight-bold">Data Query:
+                    <i class="far fa-question-circle help-icon" id="query-tip">
+                        <span class="help-text" id="query-help-text">Click to Open Query Help</span>
+                    </i>
+                </label>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" placeholder="Please Search Datasets to View:"
+                               id="myInput">
+                    </div>
+
+                    <div class="control">
+                        <a class="button is-info">
+                            View Data
+                        </a>
+                    </div>
+
+                </div>
+                <label class="has-text-black">Search By:</label>
+                <div class="control">
+                    <label class="radio">
+                        <input class="tab-links" type="radio" name="searchType"
+                               onclick="openQueryContent(event, 'search-by-uploader')" id="defaultChecked">
+                        Uploader
+                    </label>
+                    <label class="radio">
+                        <input class="tab-links" type="radio" name="searchType"
+                               onclick="openQueryContent(event, 'search-by-date')">
+                        Survey date
+                    </label>
+                    <label class="radio">
+                        <input class="tab-links" type="radio" name="searchType"
+                               onclick="openQueryContent(event, 'search-by-area')">
+                        Location
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section>
+            <button class="button is-primary" onclick="openResults()" id="resultsopenbtn">
+                <p>Go to Data Records &nbsp; </p><i class="fas fa-caret-right"></i>
+            </button>
+        </section>
+        <section id="query-section">
+            <div id="search-by-uploader" class="query-tab-content box">
+                <p class="has-text-weight-bold">Search By Uploaders:</p>
+                <ul style="padding-left: 15px">
+                    <li class="is-hoverable" id="cidco">CIDCO (1)</li>
+                    <li class="is-hoverable" id="yorku">York University (3)</li>
+                    <li class="is-hoverable" id="xuyang">Xuyang Han (1)</li>
+                </ul>
+            </div>
+
+            <div style="display: none" id="search-by-date" class="query-tab-content box">
+                <p class="has-text-weight-bold">Search By Dates:</p>
+                <ul style="padding-left: 15px">
+                    <li class="is-hoverable">Before 2016 (1)</li>
+                    <li class="is-hoverable">2016-2017 (2)</li>
+                    <li class="is-hoverable">2017-2018 (1)</li>
+                    <li class="is-hoverable">After 2018 (4)</li>
+                </ul>
+            </div>
+
+            <div style="display: none" id="search-by-area" class="query-tab-content box">
+                <p>Zoom to map.</p>
+            </div>
+        </section>
+        <section id="data-list-section" style="display: none">
+            <div class="box">
+                <p class="has-text-weight-bold">All Data Records:</p>
+                <ul id="datasets" style="padding-left: 15px">
+                    <li class="is-hoverable" onclick="openDataDetails()">10/12/2018 - 10/12/2018 CIDCO</li>
+                    <li class="is-hoverable" onclick="openDataDetails()">12/11/2017 - 12/11/2017 yorku-mjadidi</li>
+                    <li class="is-hoverable" onclick="openDataDetails()">04/10/2017 - 04/10/2017 yorku-jaykaron</li>
+                    <li class="is-hoverable" onclick="openDataDetails()">12/11/2017 - 12/11/2017 yorku-sepidehd</li>
+                    <li class="is-hoverable" onclick="openDataDetails()">12/11/2017 - 12/11/2017 hugovalcourt</li>
+                </ul>
+            </div>
+        </section>
+        <section id="data-detail" style="display: none">
+            <div class="box">
+                <strong class="is-2">Metadata:</strong> <br>
+
+                <strong>Uploaded By</strong>: CIDCO<br>
+                <strong>Coordinate System</strong>: WGS 84<br>
+
+                <strong>Extent</strong>: 63.71, -68.62 SW, 63.74, -68.54 NE<br>
+
+                <strong>Vessel Type</strong>: research<br>
+
+                <strong>Sensors</strong>: Type | Make<br>
+
+                sounder | xcvxc<br>
+            </div>
+            <div class="box">
+                <p class="has-text-weight-bold">Processed Data Downloads:
+                    <i class="far fa-question-circle help-icon" id="download-tip">
+                        <span class="help-text" id="download-help-text">Click to Open Data Downloading Help</span>
+                    </i>
+                </p>
+                <button class="button is-info">JSON</button>
+                <button class="button is-success">CSV</button>
+                <p class="has-text-weight-bold">Raw Data Files Downloads:</p>
+                <button class="button is-danger">Raw File</button>
+            </div>
+            <div class="box">
+                <p class="has-text-weight-bold">Display the Data:
+                    <i class="far fa-question-circle help-icon" id="display-tip">
+                        <span class="help-text" id="display-help-text">Click to Open Display Help</span>
+                    </i>
+                </p>
+                <button class="button is-info" onclick="addDataLayer()" id="add-layer-btn">Add Layer to the Map</button>
+                <button class="button is-danger" onclick="deleteLayer()" id="delete-layer-btn" disabled>Delete layer from the Map</button>
+            </div>
+
+        </section>
+    </div>
+    <button onclick="openQueryBar()" id="sidebaropenbtn"><i class="fas fa-angle-double-right"></i></button>
+    <div id="main">
+        <div id='map'></div>
+    </div>
+</section>
+<div class="modal" id="dash-Modal">
+    <div class="modal-background"></div>
+    <div class="modal-content container" id="dash-img-container">
+        <img id="dash-img" src="static/imgs/dashboard_snip.JPG" alt="">
+    </div>
+    <button class="modal-close is-large" aria-label="close" id="dash-Modal-close"></button>
+</div>
+
+
+<div class="modal" id="query-help-Modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Query Help:</p>
+            <button class="delete" aria-label="close" id="query-Modal-close"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>you can search by uploader's name:</p>
+            <p>you can search by data address:</p>
+        </section>
+    </div>
+</div>
+
+<div class="modal" id="dash-help-Modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Dashboard Help:</p>
+            <button class="delete" aria-label="close" id="dash-help-Modal-close"></button>
+        </header>
+        <section class="modal-card-body">
+            <p>Once you Select the datasets, you may click "generate dashboard" button to start visual analytics.</p>
+        </section>
+    </div>
+</div>
+<script src="static/js/map.js"></script>
+</body>
+</html>

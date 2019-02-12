@@ -14,8 +14,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/my resume.css">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
           sizes="32*32">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -235,14 +234,44 @@
                 me</a>.</h4>
         </div>
         <div class="columns is-multiline is-mobile">
-            <div class="column is-12-mobile is-half-tablet is-one-third-desktop">
+            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
                 <article class="tile is-child box">
-                    <figure class="image">
+                    <figure class="image fill" style="height: 60%">
                         <img src="static/imgs/york_logo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
                     </figure>
                     <p class="title is-4">CSB Interface</p>
                     <p class="subtitle is-5">Web Portal for Crowd-sourced Bathymetry Platform in North Canada Area</p>
                     <a class="button" href="/CSB_map.html">Go to Website</a>
+                </article>
+            </div>
+            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
+                <article class="tile is-child box">
+                    <figure class="image fill" style="height: 60%">
+                        <img src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    </figure>
+                    <p class="title is-4">CSB Dash App</p>
+                    <p class="subtitle is-5">Visual Analysis Dashboard for Crowd-sourced Bathymetry Data</p>
+                    <a class="button" href="http://csb-dash.herokuapp.com/">Go to Website</a>
+                </article>
+            </div>
+            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
+                <article class="tile is-child box">
+                    <figure class="image fill" style="height: 60%">
+                        <img src="http://www.prowestgis.com/wp-content/uploads/2015/04/ArcGIS_Online_Specialty_Large-LightBackground.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    </figure>
+                    <p class="title is-4">ArcGIS Online Dashboard </p>
+                    <p class="subtitle is-5">Visual Analysis Dashboard using ArcGIS Online</p>
+                    <a class="button" href="/gismap.html">Go to Website</a>
+                </article>
+            </div>
+            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
+                <article class="tile is-child box">
+                    <figure class="image fill" style="height: 60%">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/41Vd-ON7ZFL._SX425_.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    </figure>
+                    <p class="title is-4">Batman Profile Exercise </p>
+                    <p class="subtitle is-5">Basic Exercise of HTML, CSS and JS on batman profile design</p>
+                    <a class="button" href="/Batman.html">Go to Website</a>
                 </article>
             </div>
 
@@ -255,7 +284,7 @@
 </section>
 
 <!-- Resume -->
-<section class="section" id="resume">
+<section class="section box" id="resume">
     <!--link goes to my resume-->
     <div class="section-heading">
         <h3 class="title is-2">Resume</h3>
@@ -281,14 +310,14 @@
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Text input">
+                            <input class="input" type="text" placeholder="Your Name">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="email" placeholder="Email input" value="">
+                            <input class="input" type="email" placeholder="Your Email" value="">
                             <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -298,7 +327,7 @@
                     <div class="field">
                         <label class="label">Message</label>
                         <div class="control">
-                            <textarea class="textarea" placeholder="Textarea"></textarea>
+                            <textarea class="textarea" placeholder="Your Message"></textarea>
                         </div>
                     </div>
 

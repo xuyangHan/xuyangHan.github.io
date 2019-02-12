@@ -1,0 +1,28 @@
+#CourseTable td
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header{
+    font-family: “Georgia”, serif;
+    font-size: 150%;
+    font-weight: bold;
+    color: maroon;
+}
+
+/* unvisited link */
+a:link {
+  color: blue;
+}
+
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+   background-color: yellow;
+}

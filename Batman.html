@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batman</title>
+    <link rel="stylesheet" href="static/css/batman.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="static/js/batman.js"></script>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Batman's Home Page
+        </h1>
+        <div class="columns is-2">
+            <div class="column">
+                <section class="hero is-light">
+                    <div class="container is-fluid">
+                        <h1 class="header">
+                            About Me
+                        </h1>
+                    </div>
+                </section>
+                <br>
+
+
+                <p class="subtitle">
+                    Bla Bla!
+                </p>
+                <p class="subtitle">Hi, I am Batman/ I love User Interface Design.</p>
+                <p class="subtitle">This is my CV: <a href="https://www.visualcv.com/xuyang-han-4547790/">My CV.</a></p>
+
+
+                <section class="hero is-light">
+                    <div class="container is-fluid">
+                        <h1 class="header">
+                            Courses
+                        </h1>
+                    </div>
+                </section>
+                <br>
+                <p class="subtitle">
+                    Here are some courses I've taken:
+                </p>
+                <div class="container is-fluid">
+                    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="CourseTable">
+                        <thead>
+                        <tr>
+                            <th>Course Number</th>
+                            <th>Course Title</th>
+                            <th>Semesrer Taken</th>
+                        </tr>
+                        </thead>
+                        <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center">For Credit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="has-text-primary">
+                            <td>6.813</td>
+                            <td>User Interface Design</td>
+                            <td>Spring 2014</td>
+                        </tr>
+                        <tr>
+                            <td>6.034</td>
+                            <td>Artificial Intelligence</td>
+                            <td>Fall 2013</td>
+                        </tr>
+                        <tr>
+                            <td>6.006</td>
+                            <td>Introduction to Algorithms</td>
+                            <td>Fall 2013</td>
+                        </tr>
+                        <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center">Listener</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>6.867</td>
+                            <td>Machine Learning</td>
+                            <td>Fall 2013</td>
+                        </tr>
+                        <tr>
+                            <td>6.830</td>
+                            <td>Database Systems</td>
+                            <td>Fall 2012</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <section class="hero is-light">
+                    <div class="container is-fluid">
+                        <h1 class="header">
+                            Interests
+                        </h1>
+                    </div>
+                </section>
+                <br>
+                <p class="subtitle">
+                    I am interested in Learning GIS, Front-End Development and playing video games!
+                </p>
+                <section class="hero is-light">
+                    <div class="container is-fluid">
+                        <h1 class="header">
+                            Subscribe to Newsletter
+                        </h1>
+                    </div>
+                </section>
+                <br>
+                <p class="subtitle">
+                    Would love to receive newsletter. Submit below!
+                </p>
+                <div class="container is-fluid">
+                    <form>
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="your name" id="name">
+                                <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                                <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="Email input" id="email">
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                <span class="icon is-small is-right"><i class="fas fa-exclamation-triangle"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control" onclick="SubmitSuccess()">
+                                <button class="button is-link">Submit</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-text">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="column">
+                <img style="align-content: center"
+                     src="https://vignette.wikia.nocookie.net/batman/images/8/8f/Christian_Bale_as_The_Dark_Knight.jpg/revision/latest?cb=20140208170841">
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

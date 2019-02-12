@@ -12,7 +12,8 @@
     <!-- Bulma Version 0.7.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/my resume.css">
-    <link rel="icon" type="image/png" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" sizes="32*32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          sizes="32*32">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -29,7 +30,7 @@
                         <div class="tabs is-right">
                             <ul>
                                 <li class="is-active"><a>Home</a></li>
-                                <li><a href="">Examples</a></li>
+                                <li><a href="#portfolio">Examples</a></li>
 
                             </ul>
                         </div>
@@ -123,7 +124,6 @@
                         <a href="https://github.com/xuyangHan" class="button is-link">Github</a>
                         <a href="https://www.linkedin.com/in/xuyang-han-531540112" class="button is-link">LinkedIn</a>
                         <a href="https://www.youtube.com/channel/UCAx84KwRItMl_a2G-m0VpoA" class="button is-link">Youtube</a>
-                        <a href="#" class="button is-link">CodeTrace</a>
                     </div>
                 </div>
             </div>
@@ -226,6 +226,33 @@
         </div>
     </div>
 </section>
+<!-- Portfolio -->
+<section class="section" id="portfolio">
+    <div class="container is-narrow">
+        <div class="section-heading">
+            <h3 class="title is-2">My Recent Work</h3>
+            <h4 class="subtitle is-5-">Here are a few recent design projects. Want to see more? <a href="#contact">Contact
+                me</a>.</h4>
+        </div>
+        <div class="columns is-multiline is-mobile">
+            <div class="column is-12-mobile is-half-tablet is-one-third-desktop">
+                <article class="tile is-child box">
+                    <figure class="image">
+                        <img src="static/imgs/york_logo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    </figure>
+                    <p class="title is-4">CSB Interface</p>
+                    <p class="subtitle is-5">Web Portal for Crowd-sourced Bathymetry Platform in North Canada Area</p>
+                    <a class="button" href="/CSB_map.html">Go to Website</a>
+                </article>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
 
 <!-- Resume -->
 <section class="section" id="resume">
@@ -246,12 +273,11 @@
             <h3 class="title is-2">Contact</h3>
             <h4 class="subtitle is-5">Get in touch</h4>
         </div>
-        <br>
-<!--create two columns with 2px gap.-->
+        <!--create two columns with 2px gap.-->
         <div class="columns is-2">
             <!--the first column contains a form to allow user to submit info-->
-            <div class="column is-6">
-                <div class="box">
+            <div class="column is-6" style="display: flex">
+                <div class="box" style="width: 100%">
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
@@ -285,9 +311,8 @@
                 </div>
             </div>
             <!--the second column embed a google map, showing my location-->
-            <div class="column">
-                <div class="container">
-                    <h3 class="title is-4">My Location: </h3>
+            <div class="column" style="display: flex">
+                <div class="container box" style="width: 100%">
                     <div id="map"></div>
                 </div>
             </div>

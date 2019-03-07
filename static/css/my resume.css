@@ -1,3 +1,6 @@
+p {
+    margin-bottom: 0 !important ;
+}
 /*make the cards under About Me section the same height*/
 .has-same-height .card {
     height: 320px;
@@ -45,7 +48,7 @@ th {
 /*style the google map*/
 #map {
     height: 380px;
-    width: 650px;
+    width: 100%;
 }
 
 .fill {

@@ -156,18 +156,8 @@
                                 <div class="content">
                                     <p>
                                         <strong>JavaScript:</strong>
+                                        <br>
                                         <progress class="progress is-primary" value="90" max="100"></progress>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <strong>Django</strong>
-                                        <progress class="progress is-primary" value="85" max="100"></progress>
                                     </p>
                                 </div>
                             </div>
@@ -179,6 +169,18 @@
                                     <p>
                                         <strong>HTML5/CSS3</strong>
                                         <progress class="progress is-primary" value="95" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Django</strong>
+                                        <br>
+                                        <progress class="progress is-primary" value="85" max="100"></progress>
                                     </p>
                                 </div>
                             </div>
@@ -247,7 +249,8 @@
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <img src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png" class="card-img-top border is-primary" style="height: 150px">
+                    <img src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png"
+                         class="card-img-top border is-primary" style="height: 150px">
                     <div class="card-body">
                         <h5 class="card-title">CSB Dash App</h5>
                         <p class="card-text">Visual Analysis Dashboard for Crowd-sourced Bathymetry Data</p>
@@ -257,7 +260,8 @@
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <img src="http://www.prowestgis.com/wp-content/uploads/2015/04/ArcGIS_Online_Specialty_Large-LightBackground.png" class="card-img-top border is-primary" style="height: 150px">
+                    <img src="http://www.prowestgis.com/wp-content/uploads/2015/04/ArcGIS_Online_Specialty_Large-LightBackground.png"
+                         class="card-img-top border is-primary" style="height: 150px">
                     <div class="card-body">
                         <h5 class="card-title">ArcGIS Online Dashboard </h5>
                         <p class="card-text">Visual Analysis Dashboard using ArcGIS Online</p>
@@ -267,7 +271,8 @@
             </div>
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41Vd-ON7ZFL._SX425_.jpg" class="card-img-top border is-primary" style="height: 150px">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41Vd-ON7ZFL._SX425_.jpg"
+                         class="card-img-top border is-primary" style="height: 150px">
                     <div class="card-body">
                         <h5 class="card-title">Batman Profile Exercise</h5>
                         <p class="card-text">Basic Exercise of HTML, CSS and JS on batman profile design</p>
@@ -351,25 +356,25 @@
 <script>
     function initMap() {
         // my position using lat and lonn
-        var myLatLng = {lat: 43.767760, lng: -79.502970};
+        let myLatLng = {lat: 43.767760, lng: -79.502970};
         // Create a map object and specify the DOM element
         // for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
+        let map = new google.maps.Map(document.getElementById('map'), {
             center: myLatLng,
             zoom: 12
         });
 // change marker style
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        let image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
         // Create a marker and set its position.
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             map: map,
             position: myLatLng,
             icon: image,
             title: 'Hello World!'
         });
 // add info window so when click on the marker, the info window will pop up
-        var infoWindowOptions = {content: 'My Location'}
-        var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+        let infoWindowOptions = {content: 'My Location'}
+        let infoWindow = new google.maps.InfoWindow(infoWindowOptions);
         google.maps.event.addListener(marker, 'click', function (e) {
             infoWindow.open(map, marker);
         });

@@ -14,7 +14,12 @@
     <link rel="stylesheet" type="text/css" href="static/css/my resume.css">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
           sizes="32*32">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -151,7 +156,6 @@
                                 <div class="content">
                                     <p>
                                         <strong>JavaScript:</strong>
-                                        <br>
                                         <progress class="progress is-primary" value="90" max="100"></progress>
                                     </p>
                                 </div>
@@ -163,7 +167,6 @@
                                 <div class="content">
                                     <p>
                                         <strong>Django</strong>
-                                        <br>
                                         <progress class="progress is-primary" value="85" max="100"></progress>
                                     </p>
                                 </div>
@@ -175,7 +178,6 @@
                                 <div class="content">
                                     <p>
                                         <strong>HTML5/CSS3</strong>
-                                        <br>
                                         <progress class="progress is-primary" value="95" max="100"></progress>
                                     </p>
                                 </div>
@@ -214,11 +216,10 @@
                                         <br>
                                         <progress class="progress is-primary" value="20" max="100"></progress>
                                     </p>
+                                    <br>
                                 </div>
                             </div>
                         </article>
-
-
                     </div>
                 </div>
             </div>
@@ -227,58 +228,54 @@
 </section>
 <!-- Portfolio -->
 <section class="section" id="portfolio">
-    <div class="container is-narrow">
+    <div class="container">
         <div class="section-heading">
             <h3 class="title is-2">My Recent Work</h3>
             <h4 class="subtitle is-5-">Here are a few recent design projects. Want to see more? <a href="#contact">Contact
                 me</a>.</h4>
         </div>
-        <div class="columns is-multiline is-mobile">
-            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
-                <article class="tile is-child box">
-                    <figure class="image fill" style="height: 60%">
-                        <img src="static/imgs/york_logo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                    </figure>
-                    <p class="title is-4">CSB Interface</p>
-                    <p class="subtitle is-5">Web Portal for Crowd-sourced Bathymetry Platform in North Canada Area</p>
-                    <a class="button" href="/CSB_map.html">Go to Website</a>
-                </article>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="static/imgs/york_logo.jpg" class="card-img-top border is-primary" style="height: 150px">
+                    <div class="card-body">
+                        <h5 class="card-title">CSB Interface</h5>
+                        <p class="card-text">Web Portal for Crowd-sourced Bathymetry Platform in North Canada Area</p>
+                        <a class="btn btn-primary" href="/CSB_map.html">Go to Website</a>
+                    </div>
+                </div>
             </div>
-            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
-                <article class="tile is-child box">
-                    <figure class="image fill" style="height: 60%">
-                        <img src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                    </figure>
-                    <p class="title is-4">CSB Dash App</p>
-                    <p class="subtitle is-5">Visual Analysis Dashboard for Crowd-sourced Bathymetry Data</p>
-                    <a class="button" href="http://csb-dash.herokuapp.com/">Go to Website</a>
-                </article>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/logo/new-branding/dash-logo-by-plotly-stripe.png" class="card-img-top border is-primary" style="height: 150px">
+                    <div class="card-body">
+                        <h5 class="card-title">CSB Dash App</h5>
+                        <p class="card-text">Visual Analysis Dashboard for Crowd-sourced Bathymetry Data</p>
+                        <a class="btn btn-primary" href="http://csb-dash.herokuapp.com/">Go to Website</a>
+                    </div>
+                </div>
             </div>
-            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
-                <article class="tile is-child box">
-                    <figure class="image fill" style="height: 60%">
-                        <img src="http://www.prowestgis.com/wp-content/uploads/2015/04/ArcGIS_Online_Specialty_Large-LightBackground.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                    </figure>
-                    <p class="title is-4">ArcGIS Online Dashboard </p>
-                    <p class="subtitle is-5">Visual Analysis Dashboard using ArcGIS Online</p>
-                    <a class="button" href="/gismap.html">Go to Website</a>
-                </article>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="http://www.prowestgis.com/wp-content/uploads/2015/04/ArcGIS_Online_Specialty_Large-LightBackground.png" class="card-img-top border is-primary" style="height: 150px">
+                    <div class="card-body">
+                        <h5 class="card-title">ArcGIS Online Dashboard </h5>
+                        <p class="card-text">Visual Analysis Dashboard using ArcGIS Online</p>
+                        <a class="btn btn-primary" href="/gismap.html">Go to Website</a>
+                    </div>
+                </div>
             </div>
-            <div class="column is-12-mobile is-half-tablet is-one-third-desktop" style="display: flex">
-                <article class="tile is-child box">
-                    <figure class="image fill" style="height: 60%">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/41Vd-ON7ZFL._SX425_.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                    </figure>
-                    <p class="title is-4">Batman Profile Exercise </p>
-                    <p class="subtitle is-5">Basic Exercise of HTML, CSS and JS on batman profile design</p>
-                    <a class="button" href="/Batman.html">Go to Website</a>
-                </article>
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41Vd-ON7ZFL._SX425_.jpg" class="card-img-top border is-primary" style="height: 150px">
+                    <div class="card-body">
+                        <h5 class="card-title">Batman Profile Exercise</h5>
+                        <p class="card-text">Basic Exercise of HTML, CSS and JS on batman profile design</p>
+                        <a class="btn btn-primary" href="/Batman.html">Go to Website</a>
+                    </div>
+                </div>
             </div>
-
-
         </div>
-
-
     </div>
 
 </section>
@@ -303,7 +300,7 @@
             <h4 class="subtitle is-5">Get in touch</h4>
         </div>
         <!--create two columns with 2px gap.-->
-        <div class="columns is-2">
+        <div class="columns">
             <!--the first column contains a form to allow user to submit info-->
             <div class="column is-6" style="display: flex">
                 <div class="box" style="width: 100%">
@@ -381,5 +378,15 @@
 <!--my api key-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy381OfNCXjdUqgLLMYY7AtESnTjrS5eU&callback=initMap"
         async defer></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

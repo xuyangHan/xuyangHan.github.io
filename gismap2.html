@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
     <script src="https://js.arcgis.com/4.10/"></script>
     <script>
+
         require([
             "esri/Map",
             "esri/views/MapView",
@@ -54,10 +55,11 @@
             //***ADD***//
         ], function (Map, MapView, FeatureLayer, Search) {
 
+            // add map
             let map = new Map({
                 basemap: "topo-vector"
             });
-
+            // set default zoom extent and center
             let view = new MapView({
                 container: "viewDiv",
                 map: map,
@@ -65,6 +67,8 @@
                 zoom: 11
             });
 
+
+            // add geocoding widget
             let searchWidget = new Search({
                 view: view,
                 container: "search",
@@ -90,13 +94,10 @@
             });
             map.add(featureLayer_TrailLine);
 
-
-            //***ADD***//
             // Add Trailheads point feature layer
             let featureLayer_Trailheads = new FeatureLayer({
                 url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer",
             });
-
             map.add(featureLayer_Trailheads);
 
 
@@ -110,11 +111,10 @@
                 map.infoWindow.setContent(result.name);
                 map.infoWindow.show(result.feature.geometry);
             });
-let html = "<div id='spotlight' class='spotlight'></div>";
-        dojo.place(html, dojo.byId("map_container"), "first");
+            let html = "<div id='spotlight' class='spotlight'></div>";
+            dojo.place(html, dojo.byId("map_container"), "first");
 
         });
-
 
 
         let spotlight = dojo.connect(map, 'onExtentChange', function () {

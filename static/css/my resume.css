@@ -63,3 +63,16 @@ th {
     min-width: 100%;
     min-height: 100%
 }
+
+/* portfolio*/
+.card {
+    height: 335px;
+}
+
+.card .card-title{
+    font-weight: bold;
+}
+
+.card .card-img-div{
+    height: 150px;
+}

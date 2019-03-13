@@ -1,16 +1,21 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ArcGIS DevLabs: JavaScript Starter App</title>
+    <title>Search widget tutorial</title>
+    <!--<link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">-->
+    <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/css/esri.css">
     <style>
-        html, body, #viewDiv {
-            padding: 0;
-            margin: 0;
+        html, body, #map {
             height: 100%;
             width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
+        /*put search widget top left*/
         #search {
             display: block;
             position: absolute;
@@ -19,6 +24,7 @@
             left: 75px;
         }
 
+        /*style the spotlight. middle in the screen and circle shape and set shadows*/
         .spotlight {
             z-index: -1;
             position: absolute;
@@ -26,130 +32,128 @@
             top: 50%;
             border-radius: 50%;
             opacity: 0;
-            box-shadow: inset rgba(0, 0, 0, 0.25) 0px 0px 20px 20px,
-            rgba(0, 0, 0, 0.25) 0px 0px 0px 1000px;
+            box-shadow: inset rgba(0, 0, 0, 0.25) 0 0 20px 20px,
+            rgba(0, 0, 0, 0.25) 0 0 0 1000px;
             transition: all 1000ms;
             -moz-transition: all 1000ms;
             -webkit-transition: all 1000ms;
         }
 
+        /*set opacity when spotlight is activated*/
         .spotlight-active {
             z-index: 2;
             opacity: 1;
         }
-
     </style>
-
-    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
-    <script src="https://js.arcgis.com/4.10/"></script>
+    <!--<script src="https://js.arcgis.com/4.10/"></script>-->
+    <script src="https://js.arcgis.com/3.27/"></script>
     <script>
-
         require([
-            "esri/Map",
-            "esri/views/MapView",
-            //***ADD***//
-
+            "esri/map",
+            "esri/dijit/Search",
+            "esri/geometry/Extent",
+            "esri/graphic",
+            "esri/symbols/SimpleMarkerSymbol",
+            "esri/geometry/screenUtils",
+            "dojo/dom",
+            "dojo/dom-construct",
+            "dojo/query",
+            "dojo/_base/Color",
             "esri/layers/FeatureLayer",
-            "esri/widgets/Search",
-            "dojo/domReady!",
-            //***ADD***//
-        ], function (Map, MapView, FeatureLayer, Search) {
-
+            "dojo/domReady!"
+        ], function (Map, Search, Extent, Graphic, SimpleMarkerSymbol, screenUtils, dom, domConstruct, query, Color, FeatureLayer) {
+            // create a map and instance of the geocoder widget here
             // add map
-            let map = new Map({
-                basemap: "topo-vector"
-            });
             // set default zoom extent and center
-            let view = new MapView({
-                container: "viewDiv",
-                map: map,
+            let map = new Map("map", {
+                basemap: "topo-vector",
                 center: [-118.71511, 34.09042],
                 zoom: 11
             });
 
 
-            // add geocoding widget
-            let searchWidget = new Search({
-                view: view,
-                container: "search",
-                allPlaceholder: "Find address or place"
-            });
-
-            view.ui.add(searchWidget, {
-                position: "top-left",
-                index: 2
-            });
-
-
             // add Parks and Open Spaces polygon feature layer
-            let featureLayer_Parks = new FeatureLayer({
-                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer",
-            });
-            map.add(featureLayer_Parks);
+            let featureLayer_Parks = new FeatureLayer("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0");
+            map.addLayer(featureLayer_Parks);
 
             // add Trails line feature layer
-            let featureLayer_TrailLine = new FeatureLayer({
-                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer",
-                definitionExpression: "ELEV_GAIN<250",
-            });
-            map.add(featureLayer_TrailLine);
+            let featureLayer_TrailLine = new FeatureLayer("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0");
+            map.addLayer(featureLayer_TrailLine);
 
             // Add Trailheads point feature layer
-            let featureLayer_Trailheads = new FeatureLayer({
-                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer",
-            });
-            map.add(featureLayer_Trailheads);
+            let featureLayer_Trailheads = new FeatureLayer("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0");
+            map.addLayer(featureLayer_Trailheads);
 
+            // add search widget
+            let search = new Search({
+                map: map
+            }, dom.byId("search"));
 
-            dojo.connect(Search, "onSelect", function (result) {
+            //make sure to start up the widget!
+            search.startup();
+
+            // when search result, enable the spotlight, when clear the search, disable the spotlight
+            map.on("load", enableSpotlight);
+            search.on("select-result", showLocation);
+            search.on("clear-search", removeSpotlight);
+
+            // set symbol
+            function showLocation(e) {
                 map.graphics.clear();
-                varpoint = result.feature.geometry;
-                varsymbol = newesri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(newdojo.Color([255, 0, 0, 0.5]));
-                vargraphic = newesri.Graphic(point, symbol);
+                let point = e.result.feature.geometry;
+                let symbol = new SimpleMarkerSymbol().setStyle(
+                    SimpleMarkerSymbol.STYLE_SQUARE).setColor(
+                    new Color([255, 0, 0, 0.5])
+                );
+                let graphic = new Graphic(point, symbol);
                 map.graphics.add(graphic);
+
                 map.infoWindow.setTitle("Search Result");
-                map.infoWindow.setContent(result.name);
-                map.infoWindow.show(result.feature.geometry);
-            });
-            let html = "<div id='spotlight' class='spotlight'></div>";
-            dojo.place(html, dojo.byId("map_container"), "first");
+                map.infoWindow.setContent(e.result.name);
+                map.infoWindow.show(e.result.feature.geometry);
 
+                // set spotlight geometry
+                let spotlight = map.on("extent-change", function () {
+                    let geom = screenUtils.toScreenGeometry(map.extent, map.width, map.height, e.result.extent);
+                    let width = geom.xmax - geom.xmin;
+                    let height = geom.ymin - geom.ymax;
 
-            let spotlight = dojo.connect(map, 'onExtentChange', function () {
-                var geom = esri.geometry.toScreenGeometry(map.extent, map.width, map.height, result.extent);
-                var width = geom.xmax - geom.xmin;
-                var height = geom.ymin - geom.ymax;
-                var max = height;
-                if (width > height) {
-                    max = width;
-                }
-                var margin = '-' + Math.floor(max / 2) + 'px 0 0 -' + Math.floor(max / 2) + 'px';
-                var pt = result.feature.geometry;
-                var sms = newesri.symbol.SimpleMarkerSymbol().setStyle(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE).setColor(newdojo.Color([255, 0, 0, 0.5]));
-                var graphic = newesri.Graphic(pt, sms, null, null);
-                map.graphics.add(graphic);
-                dojo.query('.spotlight').addClass('spotlight-active').style({
-                    width: max + 'px',
-                    height: max + 'px',
-                    margin: margin
+                    let max = height;
+                    if (width > height) {
+                        max = width;
+                    }
+
+                    let margin = '-' + Math.floor(max / 2) + 'px 0 0 -' + Math.floor(max / 2) + 'px';
+
+                    // activate the spotlight
+                    query(".spotlight").addClass("spotlight-active").style({
+                        width: max + "px",
+                        height: max + "px",
+                        margin: margin
+                    });
+                    GISMap2.remove();
                 });
-                dojo.disconnect(spotlight);
-            });
+            }
+
+            // function to enable spotlight
+            function enableSpotlight() {
+                let html = "<div id='spotlight' class='spotlight'></div>";
+                domConstruct.place(html, dom.byId("map_container"), "first");
+            }
+
+            // function to remove spotlight
+            function removeSpotlight() {
+                query(".spotlight").removeClass("spotlight-active");
+                map.infoWindow.hide();
+                map.graphics.clear();
+            }
 
 
-        function removeSpotlight() {
-            dojo.query('.spotlight').removeClass('spotlight-active');
-            map.graphics.clear();
-        }
-
-        dojo.connect(Search, 'onClear', function () {
-            removeSpotlight();
         });
-});
     </script>
 </head>
-<body class="soria">
+<body>
 <div id="search"></div>
-<div id="viewDiv"></div>
+<div id="map"></div>
 </body>
 </html>

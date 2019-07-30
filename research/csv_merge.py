@@ -4,7 +4,7 @@ csv_header = 'MMSI,BaseDateTime,LAT,LON,SOG,COG,Heading,VesselName,IMO,' \
              'CallSign,VesselType,Status,Length,Width,Draft,Cargo'
 csv_out = 'AIS_2017_01.csv'
 
-csv_dir = r'C:\Users\admin\Downloads\data downloaded\AIS_ASCII_by_UTM_Month\2017_v2'
+csv_dir = r'C:\Users\62707\Downloads\AIS_ASCII_by_UTM_Month\2017_v2\AIS_ASCII_by_UTM_Month\2017_v2'
 os.chdir(csv_dir)
 
 dir_tree = os.walk(csv_dir)

@@ -6,7 +6,7 @@ os.chdir(csv_dir)
 
 with open('combined_data.csv', 'w', newline='') as outcsv:
     writer = csv.writer(outcsv)
-    writer.writerow(["Latitude", "Longitude", "Depth"])
+    writer.writerow(["Longitude", "Latitude", "Depth"])
 
     with open('bathymetric data 1.csv', 'r', newline='') as incsv:
         reader = csv.reader(incsv)

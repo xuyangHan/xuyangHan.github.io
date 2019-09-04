@@ -10,7 +10,7 @@ mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
                            username='admin',
                            password='pse212')
 # mongo_client = MongoClient()
-db = mongo_client.Mexico_Gulf_Data
+db = mongo_client.Gulf_St_Lawrence_Data
 # db.pointData.drop()
 
 i = 1
@@ -19,6 +19,10 @@ i = 1
 # "VesselName", "IMO", "CallSign", "VesselType", "Status", "Length", "Width",
 # "Draft", "Cargo"
 for row in reader:
+    if i % 1000 == 0:
+        print(i)
+    i = i + 1
+
     VesselName = row["VesselName"]
     if pd.isnull(VesselName) or VesselName == '':
         continue
@@ -32,7 +36,7 @@ for row in reader:
     except ValueError:
         continue
 
-    if 18.5 < Latitude < 32.5 and -97.5 < Longitude < -79.5:
+    if 45 < Latitude < 57 and -72 < Longitude < -56:
         try:
             MMSI = int(row["MMSI"])
         except ValueError:
@@ -72,8 +76,8 @@ for row in reader:
             "MMSI": MMSI,
             "BaseDateTime": BaseDateTime,
             "Location": {
-                "Latitude": Latitude,
-                "Longitude": Longitude
+                "type": "Point",
+                "coordinates": [Longitude, Latitude]
             },
             "SOG": SOG,
             "COG": COG,
@@ -91,6 +95,5 @@ for row in reader:
             "Cargo": Cargo,
         }
         db.pointData.insert_one(d)
-    if i % 1000 == 0:
-        print(i)
-    i = i + 1
+
+print('Data Loading finished.')

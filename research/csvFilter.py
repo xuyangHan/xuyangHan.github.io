@@ -3,7 +3,7 @@ import json
 from pymongo import MongoClient
 import csv
 
-csvfile = open(r'C:\Users\62707\Downloads\AIS_2017_01_Zone14\AIS_ASCII_by_UTM_Month\2017_v2\AIS_2017_01_Zone14.csv')
+csvfile = open(r'C:\Users\admin\Downloads\data downloaded\AIS_ASCII_by_UTM_Month\2017_v2\AIS_2017_01.csv')
 reader = csv.DictReader(csvfile)
 
 mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
@@ -19,7 +19,7 @@ i = 1
 # "VesselName", "IMO", "CallSign", "VesselType", "Status", "Length", "Width",
 # "Draft", "Cargo"
 for row in reader:
-    if i % 1000 == 0:
+    if i % 10000 == 0:
         print(i)
     i = i + 1
 
@@ -94,6 +94,6 @@ for row in reader:
             "Draft": Draft,
             "Cargo": Cargo,
         }
-        db.pointData.insert_one(d)
+        db.PointData.insert_one(d)
 
 print('Data Loading finished.')

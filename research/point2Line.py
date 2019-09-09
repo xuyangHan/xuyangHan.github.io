@@ -6,22 +6,28 @@ mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
 db = mongo_client.Gulf_St_Lawrence_Data
 MMSI_list = []
 
-for point in db.pointData.find():
+i = 1
+for point in db.PointData.find():
+    if i % 100 == 0:
+        print(i)
+    i = i + 1
+
     MMSI = point['MMSI']
     if MMSI not in MMSI_list:
+        MMSI_list.append(MMSI)
         BaseDateTimeStart = point['BaseDateTime']
         BaseDateTimeEnd = point['BaseDateTime']
-        Longitude = point['location']['coordinates'][0]
-        Latitude = point['location']['coordinates'][1]
+        Longitude = point['Location']['coordinates'][0]
+        Latitude = point['Location']['coordinates'][1]
         SOG = point['SOG']
         COG = point['COG']
         Heading = point['Heading']
-        VesselName = point['VesselName']
-        IMO = point['IMO']
-        CallSign = point['CallSign']
-        VesselType = point['VesselType']
-        Length = point['Length']
-        Width = point['Width']
+        VesselName = point['Vessel Info']['VesselName']
+        IMO = point['Vessel Info']['IMO']
+        CallSign = point['Vessel Info']['CallSign']
+        VesselType = point['Vessel Info']['VesselType']
+        Length = point['Vessel Info']['Length']
+        Width = point['Vessel Info']['Width']
         Status = point['Status']
         Draft = point['Draft']
         Cargo = point['Cargo']
@@ -34,9 +40,11 @@ for point in db.pointData.find():
                 "type": "LineString",
                 "coordinates": [[Longitude, Latitude]]
             },
-            "SOG": SOG,
-            "COG": COG,
-            "Heading": Heading,
+            "Velocity": {
+                "SOG": [SOG],
+                "COG": [COG],
+                "Heading": [Heading],
+            },
             "Vessel Info": {
                 "VesselName": VesselName,
                 "IMO": IMO,
@@ -52,13 +60,24 @@ for point in db.pointData.find():
         db.lineData.insert_one(d)
     else:
         line = db.lineData.find_one({"MMSI": MMSI})
-        coordinates = line['location']['coordinates']
-        coordinates.append(point['location']['coordinates'])
+
+        BaseDateTimeEnd = point['BaseDateTime']
         db.lineData.update_one(
             {"MMSI": MMSI},
             {
                 "$set": {
-                    "location": {
+                    "BaseDateTimeEnd": BaseDateTimeEnd,
+                }
+            }
+        )
+
+        coordinates = line['Location']['coordinates']
+        coordinates.append(point['Location']['coordinates'])
+        db.lineData.update_one(
+            {"MMSI": MMSI},
+            {
+                "$set": {
+                    "Location": {
                         "type": "LineString",
                         "coordinates": coordinates
                     }
@@ -66,3 +85,21 @@ for point in db.pointData.find():
             }
         )
 
+        SOGs = line['Velocity']['SOG']
+        SOGs.append(point['SOG'])
+        COGs = line['Velocity']['COG']
+        COGs.append(point['COG'])
+        Headings = line['Velocity']['Heading']
+        Headings.append(point['Heading'])
+        db.lineData.update_one(
+            {"MMSI": MMSI},
+            {
+                "$set": {
+                    "Velocity": {
+                        "SOG": SOGs,
+                        "COG": COGs,
+                        "Heading": Headings,
+                    },
+                }
+            }
+        )

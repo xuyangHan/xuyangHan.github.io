@@ -3,11 +3,19 @@ from pymongo import MongoClient
 mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
                            username='admin',
                            password='pse212')
-db = mongo_client.Gulf_St_Lawrence_Data
+db = mongo_client.Great_Lakes_Data
 MMSI_list = []
+for lineData in db.lineData.find():
+    MMSI = lineData['MMSI']
+    MMSI_list.append(MMSI)
+print('The content and the size of MMSI: \n')
+print(MMSI_list)
+print(len(MMSI_list))
 
-i = 1
-for point in db.PointData.find():
+i = 166201
+cursor = db.PointData.find(no_cursor_timeout=True)[166201:]
+print('Data loading continues \n')
+for point in cursor:
     if i % 100 == 0:
         print(i)
     i = i + 1
@@ -34,12 +42,13 @@ for point in db.PointData.find():
 
         d = {
             "MMSI": MMSI,
-            "BaseDateTimeStart": BaseDateTimeStart,
-            "BaseDateTimeEnd": BaseDateTimeEnd,
-            "Location": {
+            "geometry": {
                 "type": "LineString",
                 "coordinates": [[Longitude, Latitude]]
             },
+            "BaseDateTimeStart": BaseDateTimeStart,
+            "BaseDateTimeEnd": BaseDateTimeEnd,
+
             "Velocity": {
                 "SOG": [SOG],
                 "COG": [COG],
@@ -71,13 +80,13 @@ for point in db.PointData.find():
             }
         )
 
-        coordinates = line['Location']['coordinates']
+        coordinates = line['geometry']['coordinates']
         coordinates.append(point['Location']['coordinates'])
         db.lineData.update_one(
             {"MMSI": MMSI},
             {
                 "$set": {
-                    "Location": {
+                    "geometry": {
                         "type": "LineString",
                         "coordinates": coordinates
                     }
@@ -103,3 +112,5 @@ for point in db.PointData.find():
                 }
             }
         )
+
+cursor.close()

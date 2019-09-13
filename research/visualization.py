@@ -41,7 +41,7 @@ for line in collection.find():
         locationmode='USA-states',
         lon=long,
         lat=lat,
-        # hovertext=BaseTime,
+        hovertext=BaseTime,
         mode='lines',
         line=dict(
             width=2,

@@ -5,16 +5,17 @@ import plotly.express as px
 mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
                            username='admin',
                            password='pse212')
-db = mongo_client.Gulf_St_Lawrence_Data
+db = mongo_client.Lakes_Ontario_Data
 collection = db.lineData
 
 fig = go.Figure()
 for line in collection.find():
     long = []
     lat = []
-    for point in line['Location']['coordinates']:
+    for point in line['geometry']['coordinates']:
         long.append(point[0])
         lat.append(point[1])
+
     fig.add_trace(go.Scattergeo(
         locationmode='USA-states',
         lon=long,
@@ -38,14 +39,13 @@ for line in collection.find():
         mode='lines',
         line=dict(
             width=0.5,
-            color='red'
+
         ),
         opacity=0.5
     ))
 
-
 fig.update_layout(
-    title_text='Feb. 2011 American Airline flight paths<br>(Hover for airport names)',
+    title_text='Trajectories of AIS Data. ',
     showlegend=False,
     geo=go.layout.Geo(
         scope='north america',

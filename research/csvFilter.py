@@ -3,14 +3,14 @@ import json
 from pymongo import MongoClient
 import csv
 
-csvfile = open(r'C:\Users\admin\Downloads\data downloaded\AIS_ASCII_by_UTM_Month\2017_v2\AIS_2017_01.csv')
+csvfile = open(r'C:\Users\admin\Downloads\data downloaded\AIS_ASCII_by_UTM_Month\2017_v2\AIS_2017_01_Zone16.csv')
 reader = csv.DictReader(csvfile)
 
 mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
                            username='admin',
                            password='pse212')
 # mongo_client = MongoClient()
-db = mongo_client.Gulf_St_Lawrence_Data
+db = mongo_client.Lakes_Ontario_Data
 # db.pointData.drop()
 
 i = 1
@@ -36,7 +36,7 @@ for row in reader:
     except ValueError:
         continue
 
-    if 45 < Latitude < 57 and -72 < Longitude < -56:
+    if 43.14480 < Latitude < 44.38381 and -79.96854 < Longitude < -75.88100:
         try:
             MMSI = int(row["MMSI"])
         except ValueError:

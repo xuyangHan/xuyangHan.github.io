@@ -12,15 +12,21 @@ fig = go.Figure()
 for line in collection.find():
     long = []
     lat = []
+    BaseTime = []
+
     for point in line['geometry']['coordinates']:
         long.append(point[0])
         lat.append(point[1])
+
+    for time in line['BaseDateTime']:
+        BaseTime.append(time)
 
     fig.add_trace(go.Scattergeo(
         locationmode='USA-states',
         lon=long,
         lat=lat,
-        hoverinfo='text',
+        # hoverinfo='text',
+        # text=BaseTime,
         mode='markers',
         marker=dict(
             size=2,
@@ -35,13 +41,12 @@ for line in collection.find():
         locationmode='USA-states',
         lon=long,
         lat=lat,
-        hoverinfo='text',
+        # hovertext=BaseTime,
         mode='lines',
         line=dict(
-            width=0.5,
-
+            width=2,
         ),
-        opacity=0.5
+        opacity=0.8
     ))
 
 fig.update_layout(

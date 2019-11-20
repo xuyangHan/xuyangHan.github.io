@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import math
 
-csv = pd.read_csv('../static/data/abc.csv', header=None)
+csv = pd.read_csv('../static/data/jain.csv', header=None)
 x = csv[0]
 y = csv[1]
 # z = csv[2]

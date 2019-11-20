@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
 
-data = pd.read_csv("shifted_checkpoints.csv")
+data = pd.read_csv("rotated_checkpoints.csv")
 data2 = pd.read_csv("shifted_checkpoints2.csv")
 check_points = pd.read_csv("Check_Points.csv")
 fig = px.scatter_mapbox(data,

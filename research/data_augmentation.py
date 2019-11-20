@@ -4,7 +4,7 @@ import pandas as pd
 csvfile = open('Check_Points.csv')
 reader = csv.DictReader(csvfile)
 
-with open('shifted_checkpoints2.csv', 'w') as csvfile:
+with open('rotated_checkpoints.csv', 'w') as csvfile:
     fieldnames = ["MMSI", "Longitude", "Latitude", "SOG", "COG", "Heading"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
@@ -16,13 +16,17 @@ with open('shifted_checkpoints2.csv', 'w') as csvfile:
         i = i + 1
 
         try:
-            Latitude = float(row["Latitude"]) - 0.01
+            Latitude0 = float(row["Latitude"])
         except ValueError:
             continue
         try:
-            Longitude = float(row["Longitude"]) - 0.05
+            Longitude0 = float(row["Longitude"])
         except ValueError:
             continue
+
+        Longitude = -(Latitude0 - 44.21926) + Longitude0
+        Latitude = (Longitude + 79.4606) - 44.21926
+
         try:
             MMSI = int(row["MMSI"])
         except ValueError:

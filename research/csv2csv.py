@@ -1,10 +1,10 @@
 import csv
 import pandas as pd
 
-csvfile = open('new2.csv')
+csvfile = open('new4.csv')
 reader = csv.DictReader(csvfile)
 
-with open('new3.csv', 'w') as csvfile:
+with open('new5.csv', 'w') as csvfile:
     fieldnames = ["MMSI", "Longitude", "Latitude", "SOG", "COG", "Heading"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
@@ -28,7 +28,8 @@ with open('new3.csv', 'w') as csvfile:
         except ValueError:
             MMSI = row["MMSI"]
         # if 43.14480 < Latitude < 44.38381 and -79.96854 < Longitude < -75.88100:
-        if MMSI == 316015121:
+        # if MMSI == 316013007:
+        if i < 125:
             try:
                 SOG = float(row["SOG"])
             except ValueError:

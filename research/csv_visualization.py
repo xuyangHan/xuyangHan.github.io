@@ -4,14 +4,13 @@ import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
 
-data = pd.read_csv("shifted_checkpoints.csv")
-data2 = pd.read_csv("shifted_checkpoints2.csv")
+data = pd.read_csv("new5.csv")
 check_points = pd.read_csv("Check_Points.csv")
 fig = px.scatter_mapbox(data,
-                        lat="Latitude",
-                        lon="Longitude",
+                        lat="LAT",
+                        lon="LON",
                         hover_name="MMSI",
-                        hover_data=['COG', 'SOG', 'Heading'],
+                        hover_data=['COG', 'SOG', 'Heading', 'BaseDateTime'],
                         color_discrete_sequence=["fuchsia"],
                         zoom=3,
                         height=800
@@ -28,30 +27,21 @@ fig = px.scatter_mapbox(data,
 #     ),
 # ))
 
-check_points_lat = check_points.Latitude
-check_points_lon = check_points.Longitude
+check_points_lat = check_points.LAT
+check_points_lon = check_points.LON
+text = check_points.BaseDateTime
 fig.add_trace(go.Scattermapbox(
     lat=check_points_lat,
     lon=check_points_lon,
     mode='markers',
+    text=text,
     marker=go.scattermapbox.Marker(
         size=13,
         color='#002863',
         opacity=1
     ),
 ))
-check_points2_lat = data2.Latitude
-check_points2_lon = data2.Longitude
-fig.add_trace(go.Scattermapbox(
-    lat=check_points2_lat,
-    lon=check_points2_lon,
-    mode='markers',
-    marker=go.scattermapbox.Marker(
-        size=9,
-        color="fuchsia",
-        opacity=0.8
-    ),
-))
+
 
 fig.update_layout(mapbox_style="dark", mapbox_accesstoken=token)
 fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})

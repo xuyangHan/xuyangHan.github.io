@@ -1,41 +1,67 @@
 import json
+import pymongo
+import csv
 import pandas as pd
 from pymongo import MongoClient
 
-df = pd.read_csv(r'C:\Users\62707\Downloads\data\st lawrence data noaa\st_lawrence_data_bathymetry.csv')
+csvfile = open(r'Testing_Data.csv')
+reader = csv.DictReader(csvfile)
 
-# mongo_client = MongoClient(host='csb-comren.eng.yorku.ca', port=27017,
-#                            username='admin',
-#                            password='pse212')
-mongo_client = MongoClient()
-db = mongo_client.Gulf_St_Lawrence_Data
-db.bathymetry.drop()
+client = pymongo.MongoClient("mongodb+srv://han978:Hxy19940520@cluster0-ziegt.mongodb.net/test?retryWrites=true&w=majority")
+
+# mongo_client = MongoClient()
+db = client.testing_data
+
 
 i = 1
-for point in df.values:
-    try:
-        Longitude = float(point[0])
-    except ValueError:
-        continue
+for row in reader:
+    VesselName = row["VesselName"]
+    Latitude = float(row["LAT"])
+    Longitude = float(row["LON"])
+    MMSI = int(row["MMSI"])
+    BaseDateTime = row["BaseDateTime"]
+    SOG = float(row["SOG"])
+    COG = float(row["COG"])
+    Heading = float(row["Heading"])
+    IMO = row["IMO"]
+    CallSign = row["CallSign"]
 
-    try:
-        Latitude = float(point[1])
-    except ValueError:
-        continue
+    VesselType = int(row["VesselType"])
+    Status = row["Status"]
 
-    try:
-        Depth = float(point[2])
-    except ValueError:
-        continue
+    Length = float(row["Length"])
 
-    d = {
-        "location": {
+    Width = float(row["Width"])
+
+    Draft = row["Draft"]
+    Cargo = row["Cargo"]
+
+    point = {
+        "type": "Feature",
+        "geometry": {
             "type": "Point",
-            "coordinates": [Longitude, Latitude],
+            "coordinates": [Longitude, Latitude]
         },
-        "Depth": Depth
+        "properties": {
+            "MMSI": MMSI,
+            "BaseDateTime": BaseDateTime,
+            "SOG": SOG,
+            "COG": COG,
+            "Heading": Heading,
+            "Vessel Info": {
+                "VesselName": VesselName,
+                "IMO": IMO,
+                "CallSign": CallSign,
+                "VesselType": VesselName,
+                "Length": Length,
+                "Width": Width
+            },
+            "Status": Status,
+            "Draft": Draft,
+            "Cargo": Cargo,
+        }
     }
-    db.bathymetry.insert_one(d)
+    db.tesing_data.insert_one(point)
     if i % 1000 == 0:
         print(i)
 

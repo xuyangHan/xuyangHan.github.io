@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 from pymongo import MongoClient
 
-csvfile = open(r'Check_Points.csv')
+csvfile = open(r'noises.csv')
 reader = csv.DictReader(csvfile)
 
 client = pymongo.MongoClient("mongodb+srv://han978:Hxy19940520@cluster0-ziegt.mongodb.net/test?retryWrites=true&w=majority")
@@ -26,7 +26,7 @@ for row in reader:
     IMO = row["IMO"]
     CallSign = row["CallSign"]
 
-    VesselType = int(row["VesselType"])
+    VesselType = row["VesselType"]
     Status = row["Status"]
 
     Length = float(row["Length"])
@@ -61,9 +61,9 @@ for row in reader:
             "Cargo": Cargo,
         }
     }
-    db.check_points.insert_one(point)
-    # if i % 1000 == 0:
-    print(i)
+    db.noises.insert_one(point)
+    if i % 100 == 0:
+        print(i)
 
     i = i + 1
 

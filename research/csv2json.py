@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 from pymongo import MongoClient
 
-csvfile = open(r'Testing_Data.csv')
+csvfile = open(r'Check_Points.csv')
 reader = csv.DictReader(csvfile)
 
 client = pymongo.MongoClient("mongodb+srv://han978:Hxy19940520@cluster0-ziegt.mongodb.net/test?retryWrites=true&w=majority")
@@ -61,9 +61,9 @@ for row in reader:
             "Cargo": Cargo,
         }
     }
-    db.tesing_data.insert_one(point)
-    if i % 1000 == 0:
-        print(i)
+    db.check_points.insert_one(point)
+    # if i % 1000 == 0:
+    print(i)
 
     i = i + 1
 

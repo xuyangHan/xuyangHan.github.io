@@ -32,7 +32,7 @@ reader = csv.DictReader(file)
 # to be considered a cluster point
 min_pts = 5
 # maximum allowable distance for neighbouring points
-eps = 0.8
+eps = 0.2
 
 # transformation into points
 points = []
@@ -53,19 +53,32 @@ for row in reader:
     points.append([Latitude_norm, Longitude_norm, Heading_norm, 0, False])
 
 cluster_num = 1
+print('how many points in total')
+print(len(points))
+i = 1
 for point in points:
+    print('No. ')
+    print(i)
+    i += 1
+    clustered_points = []
     if point[3] == 0:
         point[3] = cluster_num
         cluster_num += 1
     point[4] = True
-    for point_2 in points:
-        if point_2[4]:
-            continue
-        else:
-            dis = math.pow(math.pow((point[0] - point_2[0]), 2) + math.pow((point[1] - point_2[1]), 2) + math.pow((point[2] - point_2[2]), 2), 1/2)
-            if dis <= eps:
-                point_2[3] = point[3]
-                point_2[4] = True
+    clustered_points.append(point)
+    j = 0
+    while j < len(clustered_points):
+        point_1 = clustered_points[j]
+        j += 1
+        for point_2 in points:
+            if point_2[4] or point_2 in clustered_points or point_2[3] == cluster_num:
+                continue
+            else:
+                dis = math.pow(math.pow((point_1[0] - point_2[0]), 2) + math.pow((point_1[1] - point_2[1]), 2) + math.pow((point_1[2] - point_2[2]), 2), 1/2)
+                if dis <= eps:
+                    point_2[3] = point_1[3]
+                    clustered_points.append(point_2)
+
 
 cluster_flag = []
 for point in points:

@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 from pymongo import MongoClient
 
-csvfile = open(r'noises.csv')
+csvfile = open(r'rotated.csv')
 reader = csv.DictReader(csvfile)
 
 client = pymongo.MongoClient("mongodb+srv://han978:Hxy19940520@cluster0-ziegt.mongodb.net/test?retryWrites=true&w=majority")
@@ -61,7 +61,7 @@ for row in reader:
             "Cargo": Cargo,
         }
     }
-    db.noises.insert_one(point)
+    db.crossing_data.insert_one(point)
     if i % 100 == 0:
         print(i)
 

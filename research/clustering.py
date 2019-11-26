@@ -1,6 +1,8 @@
 import pandas as pd
 import plotly.graph_objects as go
 import math
+from sklearn.cluster import DBSCAN
+
 
 csv = pd.read_csv('../static/data/jain.csv', header=None)
 x = csv[0]
@@ -36,23 +38,29 @@ eps = 2.5
 
 cluster_num = 1
 for point in points:
-    if point[2] == 0:
-        point[2] = cluster_num
-        cluster_num += 1
-    point[3] = True
-    for point_2 in points:
-        if point_2[3]:
-            continue
-        else:
-            dis = math.pow(math.pow((point[0] - point_2[0]), 2) + math.pow((point[1] - point_2[1]), 2), 1/2)
-            if dis <= eps:
-                point_2[2] = point[2]
-                point_2[3] = True
+    clustered_points = []
+    clustered_points.append(point)
+    for point_1 in clustered_points:
+        if point[2] == 0:
+            point[2] = cluster_num
+            cluster_num += 1
+        point[3] = True
+    while len(clustered_points) > 0:
+        for point_2 in points:
+            if point_2[3]:
+                continue
+            else:
+                dis = math.pow(math.pow((point[0] - point_2[0]), 2) + math.pow((point[1] - point_2[1]), 2), 1/2)
+                if dis <= eps:
+                    point_2[2] = point[2]
+                    clustered_points.append(point_2)
+        clustered_points.pop(0)
 
 
 cluster_flag = []
 for point in points:
     cluster_flag.append(point[2])
+
 # Visualize the Raw Points
 fig = go.Figure(
     data=go.Scatter(

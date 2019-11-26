@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
 
-data = pd.read_csv("Testing_Data.csv")
+data = pd.read_csv("rotated.csv")
 check_points = pd.read_csv("Check_Points.csv")
 fig = px.scatter_mapbox(data,
                         lat="LAT",
@@ -27,20 +27,20 @@ fig = px.scatter_mapbox(data,
 #     ),
 # ))
 
-check_points_lat = check_points.LAT
-check_points_lon = check_points.LON
-text = check_points.Heading
-fig.add_trace(go.Scattermapbox(
-    lat=check_points_lat,
-    lon=check_points_lon,
-    mode='markers',
-    text=text,
-    marker=go.scattermapbox.Marker(
-        size=13,
-        color='#002863',
-        opacity=1
-    ),
-))
+# check_points_lat = check_points.LAT
+# check_points_lon = check_points.LON
+# text = check_points.Heading
+# fig.add_trace(go.Scattermapbox(
+#     lat=check_points_lat,
+#     lon=check_points_lon,
+#     mode='markers',
+#     text=text,
+#     marker=go.scattermapbox.Marker(
+#         size=13,
+#         color='#002863',
+#         opacity=1
+#     ),
+# ))
 
 
 fig.update_layout(mapbox_style="dark", mapbox_accesstoken=token)

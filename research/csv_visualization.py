@@ -4,15 +4,15 @@ import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
 
-data = pd.read_csv("rotated.csv")
-check_points = pd.read_csv("Check_Points.csv")
+data = pd.read_csv("rotated_filtered.csv")
+# check_points = pd.read_csv("Check_Points.csv")
 fig = px.scatter_mapbox(data,
                         lat="LAT",
                         lon="LON",
                         hover_name="MMSI",
                         hover_data=['COG', 'SOG', 'Heading', 'BaseDateTime'],
                         color_discrete_sequence=["fuchsia"],
-                        zoom=3,
+                        zoom=10,
                         height=800
                         )
 # data_lat = data.Latitude

@@ -71,9 +71,9 @@ reader = csv.DictReader(file)
 # Rotate points
 
 
-with open('rotated.csv', 'w') as csvfile:
+with open('rotated_2.csv', 'w') as csvfile:
     fieldnames = ["MMSI", "BaseDateTime", "LAT", "LON", "SOG", "COG", "Heading", "VesselName", "IMO", "CallSign",
-                  "VesselType", "Status", "Length", "Width", "Draft", "Cargo"]
+                  "VesselType", "Status", "Length", "Width", "Draft", "Cargo", "label"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -112,14 +112,14 @@ with open('rotated.csv', 'w') as csvfile:
                  "SOG": SOG, "COG": COG,
                  "Heading": Heading_old, "VesselName": VesselName, "IMO": IMO, "CallSign": CallSign,
                  "VesselType": VesselName, "Status": Status, "Length": Length, "Width": Width, "Draft": Draft,
-                 "Cargo": Cargo}
+                 "Cargo": Cargo, "label": 1}
             )
             writer.writerow(
                 {"MMSI": MMSI, "BaseDateTime": BaseDateTime, "LAT": Latitude_new, "LON": Longitude_new,
                  "SOG": SOG, "COG": COG,
                  "Heading": Heading_new, "VesselName": VesselName, "IMO": IMO, "CallSign": CallSign,
                  "VesselType": VesselName, "Status": Status, "Length": Length, "Width": Width, "Draft": Draft,
-                 "Cargo": Cargo}
+                 "Cargo": Cargo, "label": -1}
             )
 
     print('Data Loading finished.')

@@ -66,17 +66,17 @@ th {
 
 /* portfolio*/
 .card {
-    height: 350px;
+    height: 100%;
 }
 
-.card .card-title{
-    font-weight: bold;
-}
+/*.card .card-title{*/
+/*    font-weight: bold;*/
+/*}*/
 
-.card .card-img-div{
-    height: 150px;
-}
+/*.card .card-img-div{*/
+/*    height: 150px;*/
+/*}*/
 
-.card .btn {
-    bottom: 5px;
-}
+/*.card .btn {*/
+/*    bottom: 5px;*/
+/*}*/

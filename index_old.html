@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--set page title-->
+    <title>My Resume - Xuyang Han</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--load css and js from internal and external resources.-->
+    <!-- Bulma Version 0.7.2-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/my resume.css">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          sizes="32*32">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+<!--create sections using hero style-->
+<section class="hero is-fullheight is-dark is-bold">
+    <div class="hero-head">
+        <!--create a nav bar and put tabs at the end-->
+        <nav class="navbar">
+            <div class="container">
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-end">
+                        <div class="tabs is-right">
+                            <ul>
+                                <li class="is-active"><a>Home</a></li>
+                                <li><a href="#portfolio">Examples</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <!--divide the section into two columns. -->
+            <div class="columns is-vcentered">
+                <!--the first column-->
+                <div class="column is-5">
+                    <!--import a random img each time refresh the page-->
+                    <figure class="image is-4by3">
+                        <img src="https://picsum.photos/800/600/?random" alt="Description">
+                    </figure>
+                </div>
+
+                <!--the second column-->
+                <!--styled Greetings. and a link goes to my cv.  -->
+                <div class="column is-6 is-offset-1">
+                    Hello! I am
+                    <h1 class="title is-1">
+                        Xuyang Han
+                    </h1>
+                    <h2 class="subtitle is-3">
+                        Data Analyst and Data Scientist
+                    </h2>
+
+                    <br>
+                    <p class="has-text-centered">
+                        <a class="button is-medium is-info is-outlined"
+                           href="https://xuyanghan.github.io/Xuyang_Han_VisualCV_Resume.pdf">
+                            Learn more
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section class="section" id="about">
+    <!-- Title and my description-->
+    <div class="section-heading">
+        <h3 class="title is-2">About Me</h3>
+        <h4 class="subtitle is-5">Jack of all trades, master of "some"</h4>
+        <div class="container">
+            <p>Data analytics and data mining with more than <strong>one year and a half</strong> of well-rounded
+                experience.
+                Building the <strong>first Crowd-sourced bathymetry database</strong> in North Canada Area.
+                Have experience on <strong>Full Stack Developing</strong>.
+                Applying <strong>Machine Learning Models</strong> to improve Marine Trajectory Clustering and Anomaly
+                Detection.
+                Looking for an opportunity to work and upgrade, as well as being involved in an organization that
+                believes in gaining a competitive edge and giving back to the community.</p>
+        </div>
+    </div>
+    <!--create three columns, no gap-->
+    <div class="columns has-same-height is-gapless">
+        <!--my profile in the first column-->
+        <div class="column">
+            <!-- Profile -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title is-4">Profile</h3>
+                    <!--info in the table-->
+                    <div class="content">
+                        <table class="table-profile">
+                            <tr>
+                                <th colspan="1"></th>
+                                <th colspan="2"></th>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td>York University</td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td>647-913-4069</td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>han978@yorku.ca</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <!--some links to my accounts-->
+                    <div class="buttons has-addons is-centered">
+                        <a href="https://github.com/xuyangHan" class="button is-link">Github</a>
+                        <a href="https://www.linkedin.com/in/xuyang-han-531540112" class="button is-link">LinkedIn</a>
+                        <a href="https://www.youtube.com/channel/UCAx84KwRItMl_a2G-m0VpoA" class="button is-link">Youtube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--a random img in the second column-->
+        <div class="column">
+            <!-- Profile picture -->
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <!--my skills level at the third column-->
+        <div class="column">
+            <!-- Skills -->
+            <div class="card">
+                <div class="card-content skills-content">
+                    <h3 class="title is-4">Skills</h3>
+                    <div class="content">
+                        <!--use progress bar to show my skill level-->
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Programming</strong>: Python, R, MATLAB
+                                        <br>
+                                        <progress class="progress is-primary" value="95" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Applications</strong>: Rgretl, Visual Studio, Excel, Fusion Tables
+                                        <progress class="progress is-primary" value="90" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Database</strong>: SQL, MongoDB
+                                        <br>
+                                        <progress class="progress is-primary" value="90" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Visualization</strong>: Tableau, Python, R, JS Front-End
+                                        <br>
+                                        <progress class="progress is-primary" value="80" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Math</strong>: Statistics, Linear Algebra and Calculus, Deep Learning
+                                        <br>
+                                        <progress class="progress is-primary" value="75" max="100"></progress>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Front-End Programming</strong>: HTML, CSS & JS
+                                        <br>
+                                        <progress class="progress is-primary" value="70" max="100"></progress>
+                                    </p>
+                                    <br>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section class="section box" id="portfolio" style="background-color: #f5f5f5">
+    <div class="container">
+        <div class="section-heading">
+            <h3 class="title is-2">My Recent Work</h3>
+            <h4 class="subtitle is-5-">Here are a few recent design projects. Want to see more? <a href="#contact">Contact
+                me</a>.</h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">Toronto Healthcare Query System</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">This Toronto Healthcare Query System digitalizes Toronto
+                            Healthcare resources, and help the patients find the optimal healthcare nearby.
+                            Esri Canada 2020 App Challenge.</p>
+                        <!-- Link -->
+                        <a class="btn btn-info" href="https://xuyanghan.github.io/esri_2020_app_challenge/">Explore the App</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/697662/pexels-photo-697662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">GIS and Advanced Spatial Analysis Project</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Generate Residential Solar Panel Recommendation Map for City of
+                            Airdrie. </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="https://ecce.esri.ca/wpecce/2019/12/04/arcgis-mcdm-solar-suitability-map/">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/620335/pexels-photo-620335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">Carpooling Sharing Platform</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Sustainability project, Carpooling Sharing Platform. Esri App Challenge 2019. Build by ArcGIS API for JavaScripts. </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="https://xuyanghan.github.io/esri_2019_app_challenge/">Explore the App</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/273230/pexels-photo-273230.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">CSB Interface</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Web Portal for Crowd-sourced Bathymetry Platform in North
+                            Canada Area. </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="http://csb-comren.eng.yorku.ca:8080/map/">Explore the Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">CSB Dash App</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Visual Analysis Dashboard for Crowd-sourced Bathymetry Data</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <a class="btn btn-info" href="http://csb-comren.eng.yorku.ca:8080/map/dashboard">Explore the Dashboard</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/1464230/pexels-photo-1464230.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">CrimeSolutions Platform</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Crowd-sourced crime reporting Platform. Full Stack Development using
+                            Django. </p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="https://crimesolutions.herokuapp.com">Explore the App</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">Color Picker</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Color Picker Tool for Web Developers</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="/color-picker.html">Explore the App</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4 col-md-6">
+                <div class="card">
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top"
+                             src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                             alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!-- Card content -->
+                    <div class="card-body elegant-color white-text rounded-bottom">
+                        <!-- Title -->
+                        <h4 class="card-title">Password Generator</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4">Generate a Random Password for you</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                                <!-- Link -->
+                        <a class="btn btn-info" href="/passwd-generator.html">Explore the App</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Resume -->
+<section class="section" id="resume">
+    <!--link goes to my resume-->
+    <div class="section-heading">
+        <h3 class="title is-2">Resume</h3>
+        <h4 class="subtitle is-5">More about my Past</h4>
+        <a href="https://xuyanghan.github.io/Xuyang_Han_VisualCV_Resume.pdf" class="button is-link is-medium">
+            <span>Download My Resume</span>
+        </a>
+    </div>
+</section>
+
+<!-- News -->
+<section class="section box" id="news" style="background-color: #f5f5f5">
+    <div class="section-heading">
+        <h3 class="title is-2">News</h3>
+        <h4 class="subtitle is-5">More about my Recent News</h4>
+        <div class="columns">
+            <div class="col-lg-6 offset-lg-3">
+                <ul style="text-align: left">
+                    <li type="circle">
+                        <p>Won First Prize at the Association of Ontario Land Surveyors (AOLS) poster competition during
+                            the AOLS Annual General Meeting 2019.
+                            <a href="https://lassonde.yorku.ca/articles/geomatics-graduate-students-win-four-top-prizes-aols-poster-competition">
+                                Click to See More Details
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+                <ul style="text-align: left">
+                    <li type="circle">
+                        <p>Abstract accepted by ISPRS Conference. See you at Nice, France 2021.
+                            <a href="http://www.isprs2020-nice.com/">
+                                Click to See More Details
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-heading">
+            <h3 class="title is-2">Contact</h3>
+            <h4 class="subtitle is-5">Get in touch</h4>
+        </div>
+        <!--create two columns with 2px gap.-->
+        <div class="columns">
+            <!--the first column contains a form to allow user to submit info-->
+            <div class="column is-6" style="display: flex">
+                <div class="box" style="width: 100%">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Your Name">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="Your Email" value="">
+                            <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Your Message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped has-text-centered">
+                        <div class="control">
+                            <button class="button is-link is-large">
+                                <span>Submit</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--the second column embed a google map, showing my location-->
+            <div class="column" style="display: flex">
+                <div class="container box" style="width: 100%">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--js to create google maps using google API-->
+<script>
+    function initMap() {
+        // my position using lat and lonn
+        let myLatLng = {lat: 43.774208, lng: -79.504677};
+        // Create a map object and specify the DOM element
+        // for display.
+        let map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 14
+        });
+// change marker style
+        let image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        // Create a marker and set its position.
+        let marker = new google.maps.Marker({
+            map: map,
+            position: myLatLng,
+            icon: image,
+            title: 'Hello World!'
+        });
+// add info window so when click on the marker, the info window will pop up
+        let infoWindowOptions = {content: 'My Location'}
+        let infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+        google.maps.event.addListener(marker, 'click', function (e) {
+            infoWindow.open(map, marker);
+        });
+    }
+</script>
+<!--my api key-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX7jEBDK9qjnWaJbHbJKtX9R25Uiy6ny8&callback=initMap"
+        async defer></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

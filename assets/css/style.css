@@ -1196,3 +1196,7 @@ section {
     height: 300px;
     width: 90%;
 }
+
+span.disable-links {
+    pointer-events: none;
+}

@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/IMG_5215.JPG") top right no-repeat;
+  background: url("../img/IMG_5215.JPG") center center no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -1194,7 +1194,7 @@ section {
 /*style the google map*/
 #map {
     height: 300px;
-    width: 90%;
+    width: 95%;
 }
 
 span.disable-links {
